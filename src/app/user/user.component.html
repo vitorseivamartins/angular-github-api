@@ -1,0 +1,30 @@
+
+<div class="card-container">
+    <div [ngClass]="{'invisible' : userSeached.id != 0}">
+        <img src="{{ userSeached.avatar_url }}" alt="Avatar" />
+        <div>
+            <p>{{ userSeached.login }}</p>       
+            <p>{{ userSeached.bio }}</p>       
+            <p>{{ userSeached.email }}</p>       
+            <p>Followers: {{ userSeached.followers }}</p>
+            <p>Following: {{ userSeached.following }}</p>
+        </div>
+    </div>
+    
+    <ng-container >    
+        <div *ngFor="let repo of userRepos">
+            <a  href="{{repo.html_url}}"> {{repo.name}} </a> 
+            <br />
+        </div>
+    </ng-container>
+
+    <!-- <li *ngFor="let repo of userRepos">
+        <a [href]="repo.html_url" target="_blank" rel="noopener noreferrer">{{repo.name}}</a>
+    </li> -->
+         
+    <!-- <div *ngFor="let item of user| keyvalue">
+        {{ item.key }} - {{ item.value }}
+      </div> -->
+</div>
+
+  

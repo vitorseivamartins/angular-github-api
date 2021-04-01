@@ -1,0 +1,30 @@
+
+<app-header></app-header>
+
+<!-- <form onsubmit="event.preventDefault();" role="search">
+    <input id="search" type="search" placeholder="Search for user..." autofocus required />
+    <button type="submit">Go</button>    
+  </form> -->
+
+<input class="search-bar"
+    type="search" 
+    name="username" 
+    placeholder="Search for user..."
+    [(ngModel)]="usernameInput"    
+>
+<button class="search-button"
+    type="submit" 
+    (click)="searchUser()"
+>Search</button>
+
+<app-user [userSeached]="userSeached" [userRepos]="userRepos" *ngIf="!warning && userSeached" ></app-user>
+
+<div class="card-alerta" *ngIf="warning">
+    <div class="card-alerta-header">
+        User not found!
+    </div>
+    <div class="card-alerta-body">
+        There is no user to display.
+        Try search for another one.
+    </div>
+</div>
